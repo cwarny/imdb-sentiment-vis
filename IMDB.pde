@@ -1,7 +1,6 @@
 import rita.*;
 
 String sent = "neg/";
-String folderPath = "/Users/cwarny/Dropbox/Studies/MSA NCSU/MSA/Text Mining/aclImdb/train/";
 File folder;
 File[] files;
 int fileIndex = 0;
@@ -26,10 +25,10 @@ void setup() {
   titleFont = createFont("Helvetica", 48);
   textFont(titleFont);
   
-  folder = new File(folderPath + sent);
+  folder = new File(sent);
   files = folder.listFiles();
   
-  loadReview(folderPath + sent + files[fileIndex].getName());
+  loadReview(sent + files[fileIndex].getName());
   setupTextObjects();
   stackText();
 }
@@ -222,10 +221,10 @@ void update() {
     fileIndex++;
     time = 0;
     sent = sent.equals("neg/") ? "pos/":"neg/";
-    folder = new File(folderPath + sent);
+    folder = new File(sent);
     files = folder.listFiles();
     println(files[fileIndex].getName());
-    loadReview(folderPath + sent + files[fileIndex].getName());
+    loadReview(sent + files[fileIndex].getName());
     setupTextObjects();
     stackText();
   } catch(Exception e) {
